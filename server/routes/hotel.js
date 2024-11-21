@@ -8,8 +8,12 @@ router
 .post('/hotel',token.verifyAdmin,hotel.create)
 .put('/hotel/:id',token.verifyAdmin,hotel.update)
 .delete('/hotel/:id',token.verifyAdmin,hotel.delete)
-.get('/hotel/:id',hotel.get)
+.get('/hotel/find/:id',hotel.get)
+
 .get('/hotels',hotel.getall)
+.get('/hotels/countbycity',hotel.countByCity)
+.get('/hotels/countbytype',hotel.countByType)
+
 
 
 

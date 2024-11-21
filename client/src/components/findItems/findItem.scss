@@ -1,0 +1,121 @@
+.findItem{
+    border: 1px solid rgb(144, 144, 196);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom:20px ;
+
+
+}
+.findItemImg{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.findDesc{
+    display: flex;
+    flex-direction: column;
+    margin-top: -50px;
+    font-size: small;
+    gap: 10px;
+    flex: 2;
+    .title{
+        color: rgb(247, 143, 8);
+    }
+    .distance{
+        font-size: 12px;
+    }
+    .taxi{
+        background-color: green;
+        width: fit-content;
+        padding: 3px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: white;
+    }
+.subtitle{
+    font-weight: bold;
+    font-size: 12px;
+}
+.cancel{
+    color: rgb(55, 200, 55);
+    font-size: 12px;
+    font-weight: bold;
+}
+.cancelSub{
+    color: green;
+    font-size: 12px;
+}
+
+
+
+
+}
+.fintDetails{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .fintDetailsrating{
+        display: flex;
+        justify-content: space-between;
+
+        .fintDetailsratingSpan{
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .fintDetailsratingBtn{
+            background-color: rgb(3, 19, 70);
+            color: white;
+            border-radius: 4px;
+            padding: 2px;
+            font-weight: bold;
+            font-size: 11px;
+            border: none;
+        }
+
+    }
+
+    .fintDetailsPrice{
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .fdPrice{
+            font-size: 24px;
+        }
+        .fdTax{
+            font-size: 12px;
+            color: gray;
+        }
+        .fdBtn{
+            background: linear-gradient(to right, #c0c3ca, #e7fde7);
+            border: none;
+            padding: 3px;
+            border-radius: 5px;
+            font-size: 12px;
+            height: 30px;
+        }
+
+        .fdBtn:hover{
+            background: linear-gradient(to right, #8691aa, #7cbf7c);
+
+
+        }
+        .fdBtn:active{
+            background: linear-gradient(to right, #a5b0c8, #5a775a);
+
+
+        }
+
+    }
+
+
+}

@@ -1,0 +1,173 @@
+.header{
+    height: 300px;
+     background: linear-gradient(to top, #ffffff, #3D52A0); 
+     display: flex;
+     justify-content: center;
+     position: relative;
+     z-index: 2;
+
+
+
+}
+.headerContainer{
+
+    
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0px 100px 0px;
+}
+.headerList{
+    height: 100%;
+}
+
+.title{
+    font-family: 'Inter','Segoe UI', 'Roboto';
+    margin-top: 50px;
+    font-weight: 700;
+    
+
+}
+.vacation{
+    font-size: 50px !important;
+    color: #033141;
+}
+.description{
+    font-family: 'Segoe UI', 'Roboto';
+
+    margin: 30px 0px;
+    word-spacing: 1px;
+    font-size: 17px;
+
+
+}
+
+.btn {
+    padding: 7px 16px;
+    background: linear-gradient(135deg, #94a2f3, #626480);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn:active {
+    transform: translateX(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .headerSearch{
+    height: 30px;
+    background-color: rgb(202, 219, 238);
+    border: 0.5px solid rgb(143, 165, 247);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 7px 0px;
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    max-width: 1024px;
+  }
+.icon{
+    color: rgb(40, 31, 31);
+    cursor: pointer;
+
+}
+
+
+  
+  .headerBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    background: linear-gradient(to right, #2563eb, #043a23);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+  }
+  
+  .headerBtn:hover {
+    background: linear-gradient(to right, #1d4ed8, #043f04);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+  }
+  .headerSearchItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .headerSearchInput{
+    border: none;
+    outline: none;
+    background-color:rgb(202, 219, 238) ;
+  }
+  .headerSearchDate{
+    cursor: pointer;
+    color: #033141;
+  }
+  .date{
+    position: absolute;
+    top: 50px;
+  }
+  .options{
+    position: absolute;
+    top:44px;
+    background-color: rgb(164, 216, 238);
+    padding: 4px;
+    box-shadow: 0px 0px 10px -5px black;
+    z-index: 2;
+    
+
+
+    
+  }
+  .optionCounterButton{
+    border: none;
+    outline: none;
+    border-radius: 35%;
+    margin: 5px;
+  }
+  .optiontext{
+    margin: 5px;
+    color: #033141;
+  }
+  .optionCounterButton:active{
+    background-color: #1d4ed8;
+
+  }
+  .optionItem{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .optionCounterButton:disabled{
+    cursor: not-allowed;
+  }
+  /* .headerContainer.hotelListMode{
+    margin: 20px 0px 0px 0px;
+
+  } */
+  .header.listHeader{
+    height: 70px;
+  }
+ 
+
+

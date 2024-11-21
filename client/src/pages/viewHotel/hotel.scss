@@ -1,0 +1,178 @@
+.hotelView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.viewWrapper{
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+.imgSlider{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #13213b3a;
+    display: flex;
+    align-items: center;
+   width: 100%;
+   height: 100vh;
+   
+    
+
+    .slideImg{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  
+
+    .slider{
+        width: 70%;
+        height: 70%;
+        
+        object-fit: cover;
+    }
+}
+.close{
+    position: absolute;
+    top: 67px;
+    right: 170px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.left{
+    position: absolute;
+    
+    left: 160px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+
+}
+.right{
+    position: absolute;
+    
+    right: 160px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+.viewImg{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.hotelImg{
+    height: 350px;
+    width: 370px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+.hotelImg:hover{
+    opacity:0.8;
+}
+.bookNow{
+    width: 200px;
+    height: 40px;
+    color: rgb(245, 241, 239);
+    background: linear-gradient(to right, #e4c434, #e1a6a4);    border: none;
+    border-radius: 14px;
+    font-size: 20px;
+    position: absolute;
+    cursor: pointer;
+    right:20px;
+}
+.bookNow:hover{
+    background: linear-gradient(to right, #3a4763, #e88ef1);    border: none;
+color: #3a4763;
+}
+.bookNow:active{
+    background: linear-gradient(to right, #1a2d58, #847d85);    border: none;
+color: white;
+
+}
+.vTitle{
+    font-size: 23px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.vAddress{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.distance{
+    color: chocolate;
+}
+.price{
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+
+.viewDetails{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.viewText{
+    flex: 3;
+    .descriptiond{
+        font-size: 14px;
+margin-top: 10px;    }
+
+}
+.priced{
+    flex: 1;
+    background-color: #3a476344;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+}
+.pbtn{
+    
+    height: 40px;
+    color: rgb(245, 241, 239);
+    background: linear-gradient(to right, #e4c434, #e1a6a4);    border: none;
+    border-radius: 14px;
+    font-size: 20px;
+    
+    cursor: pointer;
+    right:20px;
+}
+.pbtn:hover{
+    background: linear-gradient(to right, #817b62, #637fb3);    border: none;
+color: chocolate;
+
+}
+.pbtn:active{
+    background: linear-gradient(to right, #342f1d, #dadcdf);    border: none;
+color: rgb(214, 208, 203);
+
+}

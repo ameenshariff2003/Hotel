@@ -1,0 +1,30 @@
+.classFooter{
+    width: 100%;
+    max-width: 1024px;
+    font-size: 12px;
+    // background: radial-gradient(circle, rgb(244, 215, 215),  rgb(204, 204, 244));
+
+    
+
+    .wrapper{
+        width: 100%;
+        
+        display: flex;
+        justify-content: space-between;
+        
+        
+    }
+    .item{
+        list-style: none;
+        padding: 0;
+        margin-bottom: 10px;
+        color: black;
+        cursor: pointer;
+    }
+    .footerText{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+}

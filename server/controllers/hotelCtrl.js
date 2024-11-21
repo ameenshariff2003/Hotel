@@ -4,8 +4,8 @@ const hotel = {
     create : async(req,res,next)=>{
         try {
             const newHotel = new Hotel(req.body)
-            const saveHotelDb = newHotel.save()
-            res.status(200).json({msg:"new hodel added"});
+            const saveHotelDb = await newHotel.save()
+            res.status(200).json(saveHotelDb);
 
 
             
@@ -58,6 +58,27 @@ const hotel = {
     getall : async(req,res,next)=>{
         try {
             const getAllHotel = await Hotel.find()
+            res.status(200).json(getAllHotel);
+        } catch (err) {
+            next(err);
+            
+        }
+    },
+    countByCity:async(req,res,next)=>{
+        const cityAll = req.query.city.split(",")
+        try {
+            const listCount = await Promise.all(cityAll.map(city=>{
+                return Hotel.countDocuments({city:city})
+            }))
+            res.status(200).json(listCount);
+        } catch (err) {
+            next(err);
+            
+        }
+    },
+    countByType:async(req,res,next)=>{
+        try {
+            const getCountByType = await Hotel.find()
             res.status(200).json(getAllHotel);
         } catch (err) {
             next(err);

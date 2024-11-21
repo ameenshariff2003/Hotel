@@ -1,0 +1,59 @@
+.navbar{
+    height: 50px;
+    background-color: #3D52A0;
+    display: flex;
+    justify-content: center;
+}
+.navContain{
+    width: 100%;
+    max-width: 1024px;
+    color: #fcfcfb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    background: linear-gradient(45deg,#ddb617 0%, #94a2f3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 3px;
+    /* text-transform: uppercase; */
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.navBtn{
+    margin-left: 20px;
+    border: none;
+}
+.btn {
+    padding: 7px 16px;
+    background: linear-gradient(135deg, #626480, #94a2f3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn:active {
+    transform: translateX(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

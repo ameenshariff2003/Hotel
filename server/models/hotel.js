@@ -30,6 +30,9 @@ const HotelSchema = new Schema({
         type:String,
         required:true,
     },
+    desc:{
+        type:String
+    },
     rating:{
         type:Number,
         min:0,
