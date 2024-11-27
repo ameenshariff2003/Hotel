@@ -13,6 +13,11 @@
     justify-content: space-between;
 
 }
+.logoStyle{
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+  }
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
@@ -25,7 +30,7 @@
     transition: all 0.3s ease;
 }
 
-.logo:hover {
+.logoStyle:hover {
     transform: scale(1.05);
     text-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
@@ -57,3 +62,5 @@
     transform: translateX(1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
+  

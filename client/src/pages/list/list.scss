@@ -18,8 +18,8 @@
     position: sticky;
     flex: 1;
     height: fit-content;
-    background: linear-gradient(to top, #ebedf2, #93b5c2);
-    box-shadow: 1px 1px 1px 0.1px black;
+    background: linear-gradient(to top, #9cc7e3, #d6d1ee);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 15px;
     top: 10px;
@@ -56,7 +56,7 @@ margin-bottom: 15px;
 .sInput{
     border: none;
     border-radius: 5px;
-    background-color:#aec0f1;
+    background-color:#a9bbed;
     height: 30px;
     color: #021a0e;
     width: 100%;
@@ -105,7 +105,12 @@ margin-top: 10px;
     box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 }
 .listBtn:hover {
-    background: linear-gradient(to right, #b5bcce, #87c087);
+    background: linear-gradient(to right, #b5bcce, #92e192);
     transform: translateY(-1px);
     box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+  }
+  .listBtn:active{
+    background: linear-gradient(to right, #3a67d9, #42d242);
+
+
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./hotel.scss"
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
@@ -8,10 +8,29 @@ import Footer from '../../components/footer/Footer'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight, faLocationDot, faXmark } from '@fortawesome/free-solid-svg-icons'
+import useFetch from '../../components/hooks/useFetch'
+import { useLocation } from 'react-router-dom'
+import { SearchContext } from '../../components/context/contextApi'
 
 export default function HotelView() {
+  const location = useLocation()
+  const id = location.pathname.split("/")[2]
   const [imgSlide ,setImgSlide] = useState(0);
   const [imgOpen ,setImgOpen] = useState(false);
+
+  const {data,loading,error,refetch} = useFetch(`http://localhost:8000/server/hotel/find/${id}`);
+  const {dates,perCount} = useContext(SearchContext);
+  
+  const Millisecond_per_day = 1000 * 60 * 60 * 24;
+
+  function dayDifferenc(date1,date2){
+  const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  const diffDays = Math.ceil(timeDiff / Millisecond_per_day);
+  return diffDays;
+
+  }
+  const days = dayDifferenc(dates[0].endDate,dates[0].startDate)
+
 
 const imgs = [
   {
@@ -56,11 +75,11 @@ const handelImg =(slide)=>{
     <Navbar/>
     
     <Header type="list"/>
-    <div className="hotelView">
+    {loading?"loading":<div className="hotelView">
     {imgOpen && <div className="imgSlider">
     <FontAwesomeIcon onClick={()=>handelImg("l")} className='left' icon={faArrowLeft}/>
     <div className="slideImg">
-    <img src={imgs[imgSlide].url} alt="" className="slider" />
+    <img src={data.photos[imgSlide]} alt="" className="slider" />
     </div>
     
     <FontAwesomeIcon onClick={()=>handelImg("r")}   className='right' icon={faArrowRight}/>
@@ -70,39 +89,38 @@ const handelImg =(slide)=>{
     </div>}
       <div className="viewWrapper">
       <button className="bookNow">Reserve now</button>
-        <h1 className="vTitle">The hayat</h1>
+        <h1 className="vTitle">{data.name}</h1>
         <div className="vAddress">
           <FontAwesomeIcon icon={faLocationDot}/>
-          <span className='addressView'>25d Street building no 6 property no 9 </span>
+          <span className='addressView'>{data.address}</span>
         </div>
         <span className="distance">
-          Great Location - 2km from Airport
+          Great Location - {data.distance}km from Airport
         </span>
         <span className="price">
-          Get it for rs 3000 and free cab service from Airport
+          Get it for rs {data.cheapPrice} /<small>night</small> and free cab service from Airport
         </span>
         <div className="viewImg">
-          {imgs.map((img,i)=>(
-          <div className='img'>
-          <img  onClick={()=>imgOpenHandler(i)} src={img.url} alt="" className="hotelImg" />
+          {data.photos?.map((img,i)=>(
+          <div className='img'key={i}>
+          <img  onClick={()=>imgOpenHandler(i)} src={img} alt="" className="hotelImg" />
           </div>
           ))}
         </div>
         <div className="viewDetails">
           <div className="viewText">
-            <h1 className="titled">The Hayat</h1>
+            <h1 className="titled">{data.title}</h1>
             <p className="descriptiond">
-            Located in the heart of the city, The Hayat Hotel offers a luxurious escape for both business and leisure travelers. Our stylishly designed rooms feature modern amenities, providing the perfect balance of comfort and sophistication. 
-            Guests can unwind at our rooftop bar, enjoy a refreshing dip in the pool, or indulge in a relaxing massage at our wellness center. The Hayat’s in-house restaurant offers a selection of gourmet dishes, combining international flavors with local ingredients to create an unforgettable dining experience.
-            With impeccable service, state-of-the-art facilities, and a prime location close to top attractions, The Hayat Hotel is your ideal choice for a memorable stay.
+            {data.desc}
+      
             </p>
           </div>
           <div className="priced">
-            <h2>Perfect for 9-night stay</h2>
+            <h2>Perfect for {days}-night stay</h2>
             <span>
             Book your stay with us today and experience elegance, comfort, and convenience at its finest.
             </span>
-            <h2>&#8377;<b>27000</b></h2>
+            <h2>&#8377;<b>{data.cheapPrice*days*perCount.room}</b> <small>({days}-nights)</small></h2>
           <button className='pbtn'>lets go</button>
           </div>
         </div>
@@ -110,7 +128,7 @@ const handelImg =(slide)=>{
       <Email/>
       <Footer/>
       
-    </div>
+    </div>}
     
       
     </div>

@@ -1,6 +1,8 @@
 import './list.scss'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
+import useFetch from '../../components/hooks/useFetch.js'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom'
 import 'react-date-range/dist/styles.css'; // main style file
@@ -9,15 +11,28 @@ import { useState } from 'react'
 import { format, setDate } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import FindItem from '../../components/findItems/FindItem';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function List() {
   const location = useLocation()
   const [endSpot,setEndSpot] = useState(location.state.endSpot) ;
   const [clickDate,setClickDate] = useState(false)
-  const [date,setdate] = useState(location.state.date) ;
+  const [dates,setdates] = useState(location.state.dates) ;
   const [perCount,setPerCount] = useState(location.state.perCount) ;
+  const [min,setMin] = useState(undefined) ;
+  const [max,setMax] = useState(undefined) ;
+
+
+  const {data,loading,error,refetch} = useFetch(
+    `http://localhost:8000/server/hotels?city=${endSpot}&min=${min||0}&max=${max || 10000}`
+  )
+  console.log(data)
   
+
+ const  handelChange = ()=>{
+  refetch()
+ }
 
   return (
     <div>
@@ -29,14 +44,14 @@ export default function List() {
           <h1 className="search" >Search</h1>
           <div className="blockSearch">
             <label className='label' >End Spot</label>
-            <input type="text" placeholder ={endSpot}  className='sInput'/>
+            <input type="text" placeholder ={endSpot} onChange={(e)=>setEndSpot(e.target.value)} className='sInput'/>
           </div>
           <div className="blockSearch">
             <label className='label' >Checkin-date</label>
-            <span className='spand' onClick={()=>setClickDate(!clickDate)}>{`${format(date[0].startDate,"dd/MM/yyyy")} to ${format(date[0].endDate,"dd/MM/yyyy")}`}</span>
-            {clickDate && <DateRange className='calender' onChange={item=>setDate([item.selection])}
+            <span className='spand' onClick={()=>setClickDate(!clickDate)}>{`${format(dates[0].startDate,"dd/MM/yyyy")} to ${format(dates[0].endDate,"dd/MM/yyyy")}`}</span>
+            {clickDate && <DateRange className='calender' onChange={item=>setDates([item.selection])}
               minDate={new Date}
-              ranges={date}
+              ranges={dates}
             />}
           </div>
           <div className="others">
@@ -46,7 +61,14 @@ export default function List() {
               Min Price <small>per Night</small>
 
             </span>
-            <input type="number" min={500} className='detailInput sInput' />
+            <input type="number" onChange={(e)=>setMin(e.target.value)} min={500} className='detailInput sInput' />
+            </div>
+            <div className="detailsItems">
+              <span className="detailsItem">
+              max Price <small>per Night</small>
+
+            </span>
+            <input type="number" max={50000} onChange={(e)=>setMax(e.target.value)} className='detailInput sInput' />
             </div>
             <div className="detailsItems">
               <span className="detailsItem">
@@ -71,19 +93,20 @@ export default function List() {
             </div>
             
           </div>
-          <button className='listBtn'><FontAwesomeIcon icon={'magnifying-glass'}/>Search</button>
+          <button className='listBtn' onClick={handelChange}><FontAwesomeIcon icon={faMagnifyingGlass}/>Search</button>
          
           
         </div>
         <div className="lResult">
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
-        <FindItem/>
+        {loading ? "loading pleas wait":<>
+          {data.map((item)=>(
+
+        <FindItem item={item} key={item._id}/>
+          ))
+          }
+        </>}
+        
+        
          </div>
       </div>
     </div>

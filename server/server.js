@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const auth = require("./routes/auth.js")
 const hotel = require("./routes/hotel.js")
 const rooms = require("./routes/rooms.js")
+const cors = require('cors')
 const users = require("./routes/users.js")
 
 
@@ -37,8 +38,10 @@ mongoose.connection.on("disconnected",()=>{
     console.log("db disconnected")
 })
 //middlewares
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json());
+
 
 
 
