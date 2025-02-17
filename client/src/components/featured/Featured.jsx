@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch.js'
 import './featured.scss'
 import React from 'react'
-
+   
 const Featured = () => {
 
     const {data,loading,error} = useFetch("http://localhost:8000/server/hotels/countbycity?city=delhi,mumbai,banglore")
